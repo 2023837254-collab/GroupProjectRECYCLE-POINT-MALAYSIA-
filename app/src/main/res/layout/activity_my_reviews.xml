@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#4CAF50"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📋 My Reviews"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewReviewCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading reviews..."
+            android:textColor="#E8F5E9"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+
+    <!-- View Type Selector -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#F5F7FA"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View:"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="12dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupViewType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/radioMyReviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Reviews"
+                android:checked="true"
+                android:textColor="#333333"
+                android:buttonTint="#4CAF50" />
+
+            <RadioButton
+                android:id="@+id/radioAllReviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Reviews"
+                android:textColor="#333333"
+                android:buttonTint="#4CAF50"
+                android:layout_marginStart="16dp" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <!-- Empty State Message -->
+    <TextView
+        android:id="@+id/noReviewsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No reviews yet.\nClick 'ADD NEW REVIEW' to add your first review!"
+        android:textSize="16sp"
+        android:textColor="#757575"
+        android:gravity="center"
+        android:padding="40dp"
+        android:visibility="gone" />
+
+    <!-- Reviews List -->
+    <ListView
+        android:id="@+id/listViewReviews"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:padding="8dp" />
+
+    <!-- Add Review Button -->
+    <Button
+        android:id="@+id/btnAddReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="➕ ADD NEW REVIEW"
+        android:textSize="16sp"
+        android:background="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:padding="16dp"
+        android:onClick="openUploadReview" />
+
+</LinearLayout>

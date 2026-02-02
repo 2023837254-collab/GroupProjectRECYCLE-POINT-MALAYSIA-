@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher1"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher1"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.RecyclePointMalaysia"
+        tools:targetApi="31">
+        <activity
+            android:name=".ProfileUserActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".setremain"
+            android:exported="false" /> <!-- Google Maps API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBCKvPso21_qLNSGgMAvfzhzeacrjxV_Is" /> <!-- Firebase Database -->
+        <meta-data
+            android:name="firebase_database_url"
+            android:value="https://recyclepointmalaysia-default-rtdb.asia-southeast1.firebasedatabase.app/" /> <!-- Notification Service -->
+        <service
+            android:name="androidx.core.app.NotificationCompatSideChannelService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.support.BIND_NOTIFICATION_SIDE_CHANNEL" />
+            </intent-filter>
+        </service> <!-- Activities -->
+        <activity
+            android:name=".MyReviewsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PlaceDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MapSearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NegeriListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecommendedNegeriActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Alarm Receiver -->
+        <receiver android:name=".AlarmReceiver" />
+    </application>
+
+</manifest>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="@android:color/white"
+    android:layout_marginBottom="4dp"
+    android:elevation="2dp">
+
+    <!-- Image Preview -->
+    <ImageView
+        android:id="@+id/imageViewReview"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="12dp"
+        android:visibility="gone"
+        android:background="#E0E0E0"
+        android:contentDescription="Review image" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- Place Name and User in one line -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:id="@+id/textViewPlaceName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Place Name"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#4CAF50"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <!-- User info -->
+            <TextView
+                android:id="@+id/textViewUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your review"
+                android:textSize="11sp"
+                android:textColor="#2196F3"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:background="#E3F2FD"
+                android:layout_marginStart="8dp"
+                android:maxLines="1" />
+
+        </LinearLayout>
+
+        <!-- Rating -->
+        <TextView
+            android:id="@+id/textViewRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⭐ 4.5/5"
+            android:textSize="14sp"
+            android:textColor="#FF9800"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Review Text -->
+        <TextView
+            android:id="@+id/textViewReviewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Review text here..."
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Date -->
+        <TextView
+            android:id="@+id/textViewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12/12/2023 14:30"
+            android:textSize="12sp"
+            android:textColor="#999999" />
+
+    </LinearLayout>
+
+</LinearLayout>

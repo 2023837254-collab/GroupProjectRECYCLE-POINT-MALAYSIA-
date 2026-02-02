@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "161485064294",
+    "project_id": "textgroupesaimen",
+    "storage_bucket": "textgroupesaimen.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161485064294:android:6ffa0b42b115f5e74a45a7",
+        "android_client_info": {
+          "package_name": "com.example.recyclepointmalaysia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFVmRfUWypmgenglTGS53civdgd5TY55s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161485064294:android:d35eb68f0d7d40bf4a45a7",
+        "android_client_info": {
+          "package_name": "com.example.textgroupesaimen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFVmRfUWypmgenglTGS53civdgd5TY55s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

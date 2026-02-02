@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Place Name -->
+        <TextView
+            android:id="@+id/dialogPlaceName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Place Name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#4CAF50"
+            android:layout_marginBottom="4dp" />
+
+        <!-- User info -->
+        <TextView
+            android:id="@+id/dialogUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your review"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:textColor="#2196F3"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Rating -->
+        <TextView
+            android:id="@+id/dialogRating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rating: ⭐ 4.5/5"
+            android:textSize="16sp"
+            android:textColor="#FF9800"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Review Image -->
+        <ImageView
+            android:id="@+id/dialogImage"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            android:contentDescription="Review image" />
+
+        <!-- Review Text -->
+        <TextView
+            android:id="@+id/dialogReviewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Review text here..."
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Date -->
+        <TextView
+            android:id="@+id/dialogDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date: 12/12/2023 14:30"
+            android:textSize="14sp"
+            android:textColor="#757575" />
+
+    </LinearLayout>
+
+</ScrollView>
