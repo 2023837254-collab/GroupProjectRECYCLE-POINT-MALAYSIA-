@@ -14,7 +14,7 @@ public class RecommendedNegeriActivity extends AppCompatActivity {
     }
 
     public void openMapSearch(View v) {
-        // Buka MapSearchActivity tanpa negeri spesifik
+        
         Intent i = new Intent(this, MapSearchActivity.class);
         startActivity(i);
     }
@@ -43,7 +43,7 @@ public class RecommendedNegeriActivity extends AppCompatActivity {
         openNegeriList("Perak");
     }
 
-    // Common method to open negeri list
+ 
     private void openNegeriList(String negeriName) {
         Intent intent = new Intent(this, NegeriListActivity.class);
         intent.putExtra("NEGERI_NAME", negeriName);
