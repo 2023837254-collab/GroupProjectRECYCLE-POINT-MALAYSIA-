@@ -113,17 +113,17 @@ public class PlaceDetailActivity extends AppCompatActivity {
         finish();
     }
 
-    // OPEN LOCATION ON MAP (Opens MapSearchActivity with bottom card)
+ 
     public void openLocationOnMap(View view) {
         if (placeItem != null && placeItem.coordinates != null) {
             try {
-                // Parse coordinates
+            
                 String[] coords = placeItem.coordinates.split(",");
                 if (coords.length == 2) {
-                    // Open MapSearchActivity (NOT Google Maps app)
+                  
                     Intent intent = new Intent(this, MapSearchActivity.class);
 
-                    // Pass place details to MapSearchActivity
+                
                     intent.putExtra("SELECTED_PLACE_NAME", placeItem.name);
                     intent.putExtra("SELECTED_PLACE_ADDRESS", placeItem.address);
                     intent.putExtra("SELECTED_PLACE_COORDINATES", placeItem.coordinates);
@@ -142,9 +142,9 @@ public class PlaceDetailActivity extends AppCompatActivity {
         }
     }
 
-    // ADD REVIEW BUTTON - Opens ReviewActivity with place info
+  
     public void openReviewActivity(View view) {
-        // Check if user is logged in
+     
         if (currentUser == null) {
             Toast.makeText(this, "Please login first to write a review", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, LoginActivity.class);
