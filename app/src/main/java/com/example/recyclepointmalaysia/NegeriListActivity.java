@@ -23,7 +23,7 @@ import java.util.Map;
 public class NegeriListActivity extends AppCompatActivity {
 
     private String currentNegeriName;
-    private static final String API_KEY = "AIzaSyBCKvPso21_qLNSGgMAvfzhzeacrjxV_Is";
+    private static final String API_KEY = " ";
     private ListView listView;
     private TextView negeriTitle, centerCount;
     private ProgressBar progressBar;

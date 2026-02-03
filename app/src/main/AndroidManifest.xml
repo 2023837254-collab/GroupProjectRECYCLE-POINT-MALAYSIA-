@@ -38,7 +38,7 @@
             android:exported="false" /> <!-- Google Maps API Key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBCKvPso21_qLNSGgMAvfzhzeacrjxV_Is" /> <!-- Firebase Database -->
+            android:value=" " /> <!-- Firebase Database -->
         <meta-data
             android:name="firebase_database_url"
             android:value="https://recyclepointmalaysia-default-rtdb.asia-southeast1.firebasedatabase.app/" /> <!-- Notification Service -->
