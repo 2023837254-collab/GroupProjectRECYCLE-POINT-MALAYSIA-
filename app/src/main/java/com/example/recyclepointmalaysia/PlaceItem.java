@@ -11,7 +11,7 @@ public class PlaceItem implements Serializable {
     public String photoUrl;
     public String placeId;
 
-    // Empty constructor (required for Firebase)
+ 
     public PlaceItem() {
     }
 
@@ -38,7 +38,7 @@ public class PlaceItem implements Serializable {
         this.placeId = placeId;
     }
 
-    // Getters and setters (optional but good practice)
+    
     public String getName() {
         return name;
     }
