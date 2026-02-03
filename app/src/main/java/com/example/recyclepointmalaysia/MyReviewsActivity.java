@@ -48,8 +48,7 @@ public class MyReviewsActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
     private DatabaseReference databaseRef;
 
-    private boolean showOnlyMyReviews = true; // Default: lihat review sendiri
-
+    private boolean showOnlyMyReviews = true; 
     // Inner class untuk review item
     public static class ReviewItem {
         String reviewId;
@@ -59,7 +58,7 @@ public class MyReviewsActivity extends AppCompatActivity {
         String date;
         String imageBase64;
         String userId;
-        String userEmail; // Untuk display siapa yang buat review
+        String userEmail; 
 
         public ReviewItem(String reviewId, String placeName, String reviewText, float rating,
                           String date, String imageBase64, String userId, String userEmail) {
@@ -79,12 +78,12 @@ public class MyReviewsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_reviews);
 
-        // Initialize Firebase
+      
         auth = FirebaseAuth.getInstance();
         currentUser = auth.getCurrentUser();
         databaseRef = FirebaseDatabase.getInstance().getReference();
 
-        // Check if user is logged in
+      
         if (currentUser == null) {
             Toast.makeText(this, "Please log in first", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, LoginActivity.class);
@@ -93,20 +92,20 @@ public class MyReviewsActivity extends AppCompatActivity {
             return;
         }
 
-        // Initialize views
+        
         listViewReviews = findViewById(R.id.listViewReviews);
         noReviewsText = findViewById(R.id.noReviewsText);
         textViewReviewCount = findViewById(R.id.textViewReviewCount);
         btnAddReview = findViewById(R.id.btnAddReview);
 
-        // Radio buttons untuk pilihan view
+     
         radioGroupViewType = findViewById(R.id.radioGroupViewType);
         radioMyReviews = findViewById(R.id.radioMyReviews);
         radioAllReviews = findViewById(R.id.radioAllReviews);
 
         reviewList = new ArrayList<>();
 
-        // Custom adapter dengan user info
+      
         adapter = new ArrayAdapter<ReviewItem>(this, R.layout.list_item_review, R.id.textViewPlaceName, reviewList) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
@@ -114,21 +113,21 @@ public class MyReviewsActivity extends AppCompatActivity {
 
                 ReviewItem item = reviewList.get(position);
 
-                // Get views from layout
+               
                 TextView placeNameView = view.findViewById(R.id.textViewPlaceName);
                 TextView ratingView = view.findViewById(R.id.textViewRating);
                 TextView reviewTextView = view.findViewById(R.id.textViewReviewText);
                 TextView dateView = view.findViewById(R.id.textViewDate);
-                TextView userView = view.findViewById(R.id.textViewUser); // TextView baru untuk user
+                TextView userView = view.findViewById(R.id.textViewUser); 
                 ImageView imageView = view.findViewById(R.id.imageViewReview);
 
-                // Set data
+              
                 placeNameView.setText(item.placeName != null ? item.placeName : "Unknown Place");
                 ratingView.setText(String.format(Locale.getDefault(), "⭐ %.1f/5", item.rating));
                 reviewTextView.setText(item.reviewText != null ? item.reviewText : "");
                 dateView.setText(item.date != null ? item.date : "");
 
-                // Show user info jika bukan review sendiri
+               
                 if (currentUser != null && item.userId != null && item.userId.equals(currentUser.getUid())) {
                     userView.setText("Your review");
                     userView.setTextColor(getResources().getColor(android.R.color.holo_blue_dark));
@@ -139,7 +138,7 @@ public class MyReviewsActivity extends AppCompatActivity {
                 }
                 userView.setVisibility(View.VISIBLE);
 
-                // Load image if available
+            
                 if (item.imageBase64 != null && !item.imageBase64.isEmpty() && !item.imageBase64.equals("null")) {
                     try {
                         byte[] decodedBytes = Base64.decode(item.imageBase64, Base64.DEFAULT);
@@ -177,7 +176,7 @@ public class MyReviewsActivity extends AppCompatActivity {
             }
         });
 
-        // Default pilih my reviews
+      
         radioMyReviews.setChecked(true);
 
         // Load reviews pertama kali
@@ -227,7 +226,7 @@ public class MyReviewsActivity extends AppCompatActivity {
                                 }
                             }
 
-                            // Filter jika hanya mau review sendiri
+                          
                             if (showOnlyMyReviews) {
                                 if (currentUser != null && userId != null &&
                                         !userId.equals(currentUser.getUid())) {
@@ -286,11 +285,11 @@ public class MyReviewsActivity extends AppCompatActivity {
         };
 
         if (showOnlyMyReviews) {
-            // Load hanya review user ini
+          
             databaseRef.child("reviews").orderByChild("userId").equalTo(currentUser.getUid())
                     .addValueEventListener(valueEventListener);
         } else {
-            // Load semua review
+            
             databaseRef.child("reviews").addValueEventListener(valueEventListener);
         }
     }
@@ -301,7 +300,7 @@ public class MyReviewsActivity extends AppCompatActivity {
 
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_full_review, null);
 
-        // Initialize dialog views
+    
         TextView dialogPlaceName = dialogView.findViewById(R.id.dialogPlaceName);
         TextView dialogRating = dialogView.findViewById(R.id.dialogRating);
         TextView dialogReviewText = dialogView.findViewById(R.id.dialogReviewText);
@@ -309,13 +308,13 @@ public class MyReviewsActivity extends AppCompatActivity {
         TextView dialogUser = dialogView.findViewById(R.id.dialogUser); // TextView untuk user
         ImageView dialogImage = dialogView.findViewById(R.id.dialogImage);
 
-        // Set data
+      
         dialogPlaceName.setText(item.placeName);
         dialogRating.setText(String.format(Locale.getDefault(), "Rating: ⭐ %.1f/5", item.rating));
         dialogReviewText.setText(item.reviewText);
         dialogDate.setText("Date: " + item.date);
 
-        // Set user info
+       
         if (currentUser != null && item.userId != null && item.userId.equals(currentUser.getUid())) {
             dialogUser.setText("Your review");
         } else {
@@ -352,7 +351,7 @@ public class MyReviewsActivity extends AppCompatActivity {
                 deleteReview(item.reviewId);
             });
         } else {
-            // Untuk review orang lain, disable atau hide delete button
+          
             builder.setNegativeButton("Report", (dialog, which) -> {
                 reportReview(item);
             });
